@@ -1,0 +1,80 @@
+.content{
+    display: grid;
+    grid-template-columns: 60% 40%; /*tamanho das colunas que qro, como só quero duas colunas, coloco o tamanho de apenas duas colunas*/
+    grid-template-rows: 11.4rem 1fr; /*no primeiro eu defini um tamnho especifico, já na segunda linha defini que irá pegar 1 fração do que sobrar, ou seja, pegará tudo o que sobrou*/
+
+    /*Definindo nossas areas, ou seja, quem ocupará cada quadrante*/
+
+    grid-template-areas: 
+    'header header' /*primeira linha, primeira e segunda coluna*/
+    'left right'/*segunda linha, primeira e segunda coluna*/
+}
+
+header{
+    grid-area: header;
+}
+
+#bg{
+    grid-area: left;
+
+    background: url(/images/home-bg-img.svg) no-repeat top/contain; /*top/contain - img se alinhar ao topo e encaixar a img por completo dentro do espaço da div em que está*/
+
+    background-position-x: -10rem;
+}
+
+main{
+    grid-area: right;
+
+    display: flex;
+    align-items: center;
+    margin-top: -12rem;
+}
+
+main .container {
+    width: min(36.3rem, 100%); /*Sempre pegar esse valor minimo, pode chegar ao 100% se esse 100% for menor que os 36.3rem, sempre dará preferenca ao minimo*/
+
+}
+
+main h2{
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+    font-size: clamp(20px, 5vw, 2.8rem);
+    margin-bottom: 2.4rem;
+}
+
+
+
+input{
+    border: 0.2rem solid var(--grey-blue);
+    padding: 0 1.6rem;
+    outline: none;
+}
+
+input, button, .button {
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+/*Separetor Line*/
+
+.separator{
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.separator div:nth-child(2){
+    color: var(--grey-blue);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 0 1.35rem; /*0 pra cima e pra baixo e 1.35rem para os lados*/
+    line-height: 0;
+
+}
+
+.separator div:nth-child(1),
+.separator div:nth-child(3){
+    background: var(--grey-blue);
+    width: 100%;
+    height: 1px;
+}
