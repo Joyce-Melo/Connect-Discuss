@@ -11,7 +11,7 @@ html{
     --black: #0D114F; /*variável*/
     --white:#FAFAFA;
     --red:#E83F5B;
-    --ligh-blue:#E0ECFF;
+    --light-blue:#E0ECFF;
     --blue: #3485FF;
     --background: #FBFCFF;
     --overlay: #040911;
@@ -20,6 +20,7 @@ html{
     --grey-dark: #4D5E77;
     --grey-blue: #A1B2CD;
     --grey-light: #E5EAF1;
+    --grey-medium: #eaecf2;
 
     /*1 rem = 16px - boas práticas - usar rem ao invés de pixel, pois segue um padrão independente de diminuir e aumentar a tela, uma vez que o pixel sempre permanecerá o mesmo*/
     /* 1 rem = 16px(User Agent) = 100%(User Agent)*/
@@ -91,7 +92,7 @@ button:hover, .button:hover{
 
 }
 
-button > img
+button > img,
 .button > img{
     margin-right: 1rem;
     width: 2rem;
@@ -104,6 +105,20 @@ button.outlined,
     border: 0.2rem solid var(--blue);
 }
 
+button.red,
+.button.red{
+    background: var(--red);
+    color: var(--white);
+}
+
+button.grey,
+.button.grey{
+    background: var(--grey-light);
+    color: var(--grey-dark);
+}
+
+
+/* Header */
 .content header{
     width: 80%;
     margin: 3.5rem auto;
