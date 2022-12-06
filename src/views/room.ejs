@@ -15,6 +15,10 @@
         href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet">
     <title>Rocket.Q - Perguntas e Respostas</title>
+    <!--Script-->
+    <script src="scripts/main.js" defer type="module"></script> <!--Falando para nosso HTML que esse script que ele está carregando é um módulo (scirpts que importarm e exportam funções)-->
+
+
 </head>
 
 <body>
@@ -160,8 +164,8 @@
                 <input type="password" id="password" name="password" placeholder="Digite sua senha">
 
                 <div class="buttons">
-                    <div class="button grey">Cancelar</div> <!--Como é um botão que não enviará informação, apenas fechará a modal, podemos fazer dele um div-->
-                    <button class="red">Sim, excluir</button> <!--Como já é um button não há a necessidade de aplicar a classe button-->
+                    <div class="button grey cancel">Cancelar</div> <!--Como é um botão que não enviará informação, apenas fechará a modal, podemos fazer dele um div-->
+                    <button class="red">Sim, excluir</button> <!--Como já é um button não há a necessidade de aplicar a classe button -->
                 </div>
 
             </form>
