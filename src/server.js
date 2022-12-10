@@ -13,6 +13,9 @@ server.use(express.static("public")); //Aqui estamos pedindo para que o express 
 
 server.set('views', path.join(__dirname, 'views')); //Aqui estou especificando onde fica a pasta view, pois por padrão o node espera que ela esteja fora do src, mas aqui no nosso projeto ela está dentro
 //O path pega o caminho da pasta onde está o nosso projeto, o join junta, pega o dirname que é a pasta onde está esse arquivo em que chamamos o join, ou seja, aqui o __dirname = src
+
+server.use(express.urlencoded({extended: true})); //Isso é uma configuração de middleware, o middleware faz a intermediação entre o que vem para a rota e para onde a rosta está sendo mandada. Ps: sempre posicionar a config de middleware antes da rota
+
 server.use(route); //Aqui nós começamos a usar de fato o arquivo route
 
 

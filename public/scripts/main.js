@@ -39,14 +39,25 @@ deleteButton.forEach(button => {
 
     
     })
-
+    //o event traz consigo o elemento em que ocorreu o evento, além disse ele leva todo o atributo do elemento no qual ocorreu o evento. Por exemplo, se o evento ocorreu no botão excluir, ele vai levar todos os atributos do excluir (que esta dento de um a cuja classe é delete, pegando tudo da classe a)
     function handleClick(event, check = true){
 
+        event.preventDefault(); //Todo link quando clicamos altera a URL, nossos botões de marcar como lido e Excluir não devem alterar a URL, portanto não se comportam conforme um link comum
+        //Então colocamos essa função a cima para dizer ao JS que essas tags a não se comportam como um link comum, afinal ela não nos direciona de fato para outra página, apenas abrem uma modal
         const text = check ? "Marcar como lida" : "Excluir"
+        const slug = check ? "check" : "delete" //Se nosso slug for true, então slug = check, se não slug se torna delete
+        const roomId = document.querySelector("#room-id").dataset.id;
+        const questionId = event.target.dataset.id;
+
+        const form = document.querySelector(".modal form");
+        form.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`); //pasamos o que queremos mudar e pelo que queremos mudar
+
+
 
         modalTitle.innerHTML = `${text} esta pergunta?` //se check = true ele muda o texto para marcar como lido, se check = false ele muda o texto para exlcuir a pergunta
         modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta?`
-        modalButton.innerHTML = check ? "Sim, marcar como lida" : "Sim, excluir pergunta"
+        modalButton.innerHTML = `Sim, ${text.toLowerCase()}`
+        check ? modalButton.classList.remove("red") : modalButton.classList.add("red");
         modal.open()
     }
 
