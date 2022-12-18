@@ -4,14 +4,31 @@ const Database = require("../db/config");
 
 
 module.exports = {
-    index(req, res){ //onde de fato irá nosso código
+    async index(req, res){ //onde de fato irá nosso código
+        const db = await Database()
         const roomId = req.params.room;
         const questionId = req.params.question;
         const action = req.params.action;
         const password = req.body.password; //esse último é o nome do iput que está na modal
 
-        console.log(`room = ${roomId}, questionId = ${questionId}, action = ${action}, password = ${password}`)
+        /*Verificar se a senha está correta */
+       const verifyRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`) //o db.get irá trazer apenas um elemento, password podemos ter mais de uma igual, porém Id Não! Então faremos a validação pelo ID aqui
+        if(verifyRoom.pass == password){
+            if(action == "delete"){
 
+                await db.run(`DELETE FROM questions WHERE id = ${questionId}`)
+
+            } else if (action == "check"){
+
+                await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`)
+            }
+            res.redirect(`/room/${roomId}`)
+        } else {
+            res.render('passincorrect', {roomId: roomId})
+        }
+
+
+       
     },
 
     async create(req, res){

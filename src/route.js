@@ -11,6 +11,7 @@ route.get('/room/:room', RoomController.open);
 //route.post('/room/323232/2/check'); //Aqui na rota temos que passar o room, que é onde está a pergunta, o ID da Sala em que está a pergunta, o ID da pergunta, e a ação que estamos executando
 // Formato que o formulário de dentro da modal tem que passar a informação route.post('/room/:room/:question/:action');//Para usarmos variáveis em rotas, devemos usar o dois pontos (":")
 route.post('/create-room', RoomController.create )
+route.post('/enterroom', RoomController.enter)//Se estamos enviando algo, então usamos POST, se queremos apenas ler, usamos um GET
 
 
 route.post('/question/create/:room', QuestionController.create)
