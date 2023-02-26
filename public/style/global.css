@@ -1,154 +1,142 @@
-*{
-    margin: 0;
-    padding: 0;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-html{
-    --black: #0D114F; /*variável*/
-    --white:#FAFAFA;
-    --red:#E83F5B;
-    --light-blue:#E0ECFF;
-    --blue: #3485FF;
-    --background: #FBFCFF;
-    --overlay: #040911;
-    --icons-details: #A5B0C1;
+html {
+  --black: #0d114f;
+  --white: #fafafa;
+  --red: #e83f5b;
+  --light-blue: #e0ecff;
+  --blue: #3485ff;
+  --background: #fbfcff;
+  --overlay: #040911;
+  --icons-details: #a5b0c1;
 
-    --grey-dark: #4D5E77;
-    --grey-blue: #A1B2CD;
-    --grey-light: #E5EAF1;
-    --grey-medium: #eaecf2;
+  --grey-dark: #4d5e77;
+  --grey-blue: #a1b2cd;
+  --grey-light: #e5eaf1;
+  --grey-medium: #eaecf2;
 
-    /*1 rem = 16px - boas práticas - usar rem ao invés de pixel, pois segue um padrão independente de diminuir e aumentar a tela, uma vez que o pixel sempre permanecerá o mesmo*/
-    /* 1 rem = 16px(User Agent) = 100%(User Agent)*/
-    /* se 16px são 100% então 10px são 62.5%*/
-    font-size: 62.5% /*Como estamos setando isso dentro do HTML, estamos setando o padrão do browser e 10px*/
+  font-size: 62.5%;
 }
 
-/*h2{No User Agent 16px era 1.75rem, porém agora como nosso padrão foi setado em 10px, em rem fica? ps: no layout o titulo está com 28px
-    font-size: 2.8rem;
-}*/
-
-body{
-    display: flex;
-    height: 100vh;
-    background: var(--background)
+body {
+  display: flex;
+  height: 100vh;
+  background: var(--background);
 }
 
-body, button, input, textarea{ /*Quando colocamos font-size/family no body, ele não engloba o button, input e textarea e por isso estamos colocando aqui e não ali em cima*/
-    /*camp - intervalo de tamanho, ou seja, o minimo que a letra pode chegar é 14px, o padrão é 1.6rem, e a tela for muito grande, ela chegará no máximo em 2vw */
-    font-size: clamp(14px, 1.6rem, 2vw);
-    font-family: 'Open Sans', sans-serif;
-    /*font-family: 'Poppins', sans-serif;*/
-
+body,
+button,
+input,
+textarea {
+  font-size: clamp(14px, 1.6rem, 2vw);
+  font-family: "Open Sans", sans-serif;
 }
 
-.content{
-    width: 100%;
-    margin: 0 auto;
+.content {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.sr-only{ /*Aqui iremos esconder o label do input, ele não existe no layout mas colocamos ele no HTML por questão de acessbilidade, escondendo ele, ele não ficará visivel porém será reconhecido por leitores de tela e motores de busca*/
-    position: absolute; /*como se ficasse por cima dos elementos*/
-    height: 1px;
-    width: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: rect(0,0,0,0); /*Posicionamento, top, right, bottom, left */
-    white-space: nowrap;
-    border-width: 0;
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-input, button, .button{
-    border-radius: 0.8rem;
-    height: 5rem;
+input,
+button,
+.button {
+  border-radius: 0.8rem;
+  height: 5rem;
 }
 
-button, .button{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    line-height: 0; /*Como se fosse umar margem mas que acompnha o textp, espaçamento entre as linhas do texto*/
+button,
+.button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  line-height: 0;
 
-    display: flex;
-    align-items: center; /*Align itens alinha na vertical*/
-    justify-content: center; /*alinha na horizontal*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: var(--blue);
-    color: var(--white);
+  background: var(--blue);
+  color: var(--white);
 
-    transition: filter .2s;
+  transition: filter 0.2s;
 
-    cursor: pointer;
-    
-
+  cursor: pointer;
 }
 
-button:hover, .button:hover{
-    filter: brightness(1.2); /*aplica um "brilho"*/
-
+button:hover,
+.button:hover {
+  filter: brightness(1.2);
 }
 
 button > img,
-.button > img{
-    margin-right: 1rem;
-    width: 2rem;
+.button > img {
+  margin-right: 1rem;
+  width: 2rem;
 }
 
 button.outlined,
-.button.outlined{
-    background: var(--white);
-    color: var(--blue);
-    border: 0.2rem solid var(--blue);
+.button.outlined {
+  background: var(--white);
+  color: var(--blue);
+  border: 0.2rem solid var(--blue);
 }
 
 button.red,
-.button.red{
-    background: var(--red);
-    color: var(--white);
+.button.red {
+  background: var(--red);
+  color: var(--white);
 }
-
-
 
 button.grey,
-.button.grey{
-    background: var(--grey-light);
-    color: var(--grey-dark);
+.button.grey {
+  background: var(--grey-light);
+  color: var(--grey-dark);
 }
-
 
 /* Header */
-.content header{
-    width: 80%;
-    margin: 3.5rem auto;
+.content header {
+  width: 80%;
+  margin: 3.5rem auto;
 }
 .content header img {
-    width: 16.7rem;
+  width: 16.7rem;
 }
 
 /*Create balls*/
-.ball{
-    width: 21.2rem;
-    height: 21.2rem;
-    background: var(--blue);
-    clip-path: circle();
-    position: fixed;
-    opacity: 0.1;
-
+.ball {
+  width: 21.2rem;
+  height: 21.2rem;
+  background: var(--blue);
+  clip-path: circle();
+  position: fixed;
+  opacity: 0.1;
 }
 
-.ball.top{
-    top: -46rem;   
-    width: 63.3rem;
-    right: -35rem;
-    height: 63.3rem;
-
+.ball.top {
+  top: -46rem;
+  width: 63.3rem;
+  right: -35rem;
+  height: 63.3rem;
 }
 
-.ball.bottom{
-    bottom: -15rem;
-    right: 5.6rem;
+.ball.bottom {
+  bottom: -15rem;
+  right: 5.6rem;
 }

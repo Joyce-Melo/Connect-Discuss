@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <!--Padrão de linguagem que aceita os acentos e caracteres da lingua portuguesa-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/global.css">
@@ -15,8 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet">
     <title>Rocket.Q - Perguntas e Respostas</title>
-    <!--Script-->
-    <script src="/scripts/main.js" defer type="module"></script> <!--Falando para nosso HTML que esse script que ele está carregando é um módulo (scirpts que importarm e exportam funções)-->
+    <script src="/scripts/main.js" defer type="module"></script>
 
 
 </head>
@@ -61,55 +59,55 @@
 
             <section id="questions">
                 <h2 class="sr-only">Perguntas da comunidade</h2>
-                <div class="questions"> 
+                <div class="questions">
 
                     <% if(isNoQuestions) {%>
-                        <%- include('parts/no-question')%>
+                    <%- include('parts/no-question')%>
                     <%}%>
 
                         <%questions.forEach(question =>{%>
                     <div class="question-wrapper">
-                            <div class="question-content">
-                                <div class="user">
-                                    <img src="/images/userAvatar.svg" alt="Avatar">
-                                </div>
-                                <div class="question">
-                                    <p><%=question.title%></p>
-                                </div>
-                            </div> <!-- usamoso simbolo do ejs com = para dar um "print" em uma variável, ou seja, apenas mostra-lá, quando queremos usar a variável, como usamos o forEach ali em cima, nós usamos eo símbolo sem o igual, lembrando que a cd linha usando o js devemos abrir e fechar o simbolo-->
-                            <div class="actions">
-                                <a href="#" class="check" data-id="<%= question.id %>">
-                                    <img src="/images/check.svg" alt="Marcar como lida">
-                                    Marcar como lida
-                                </a>
-                                <a href="#" class="delete" data-id="<%= question.id %>">
-                                    <img src="/images/trash.svg" alt="Excluir">
-                                    Excluir
-                                </a>
+                        <div class="question-content">
+                            <div class="user">
+                                <img src="/images/userAvatar.svg" alt="Avatar">
+                            </div>
+                            <div class="question">
+                                <p><%=question.title%></p>
                             </div>
                         </div>
+                        <div class="actions">
+                            <a href="#" class="check" data-id="<%= question.id %>">
+                                <img src="/images/check.svg" alt="Marcar como lida">
+                                Marcar como lida
+                            </a>
+                            <a href="#" class="delete" data-id="<%= question.id %>">
+                                <img src="/images/trash.svg" alt="Excluir">
+                                Excluir
+                            </a>
+                        </div>
+                    </div>
                     <%});%>
-                    
 
-                        <% questionsRead.forEach(questionRead => { %> 
-                            <div class="question-wrapper read">
-                                <div class="question-content">
-                                    <div class="user">
-                                        <img src="/images/userAvatar.svg" alt="Avatar">
-                                    </div>
-                                    <div class="question">
-                                        <p><%= questionRead.title %></p>
-                                    </div>
-                                </div>
-                                <div class="actions">                           
-                                    <a href="#" class="delete" data-id="<%= questionRead.id %>">
-                                        <img src="/images/trash.svg" alt="Excluir">
-                                        Excluir
-                                    </a>
-                                </div>
+
+                    <% questionsRead.forEach(questionRead => { %>
+                    <div class="question-wrapper read">
+                        <div class="question-content">
+                            <div class="user">
+                                <img src="/images/userAvatar.svg" alt="Avatar">
                             </div>
-                        <%})%>
-                    
+                            <div class="question">
+                                <p><%= questionRead.title %></p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <a href="#" class="delete" data-id="<%= questionRead.id %>">
+                                <img src="/images/trash.svg" alt="Excluir">
+                                Excluir
+                            </a>
+                        </div>
+                    </div>
+                    <%})%>
+
 
                 </div>
             </section>
@@ -117,7 +115,6 @@
     </div>
 
 
-    <!--Modal-->
     <div class="modal-wrapper">
         <div class="modal">
             <h2>Excluir Pergunta</h2>
@@ -128,8 +125,8 @@
                 <input type="password" id="password" name="password" placeholder="Digite sua senha">
 
                 <div class="buttons">
-                    <div class="button grey cancel">Cancelar</div> <!--Como é um botão que não enviará informação, apenas fechará a modal, podemos fazer dele um div-->
-                    <button class="red">Sim, excluir</button> <!--Como já é um button não há a necessidade de aplicar a classe button -->
+                    <div class="button grey cancel">Cancelar</div>
+                    <button class="red">Sim, excluir</button>
                 </div>
 
             </form>
